@@ -1,12 +1,8 @@
 requests
-re
-os
 pymongo
 praw
 sentence_transformers
-json
-sklearn
+scikit-learn
 streamlit
 matplotlib
 numpy
-random
