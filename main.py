@@ -19,7 +19,7 @@ import random
 
 def getsubreddits(amount:int=1, filter = False) -> list[str]:
     """
-    Extract subreddit names through web scraping. Many subreddits use the word "porn" to describe something
+    Extract subreddit names through web scraping. Many subreddits use the word "/porn" to describe something
     satisfying such as "r/foodporn" being nice looking food. Hence, the filter boolean for more "academic" results.
     :param amount: amount of subreddits to scrape, by 250 (1=250, 2=500, etc...)
     :param filter: Filter out the word porn
@@ -120,8 +120,6 @@ def cluster(transforms: dict, data_2d: list) -> plt.figure:
     fig, ax = plt.subplots()
     for i in range(len(out_data)):
         ax.scatter(data_2d[i][0], data_2d[i][1], c=cols[out_data[i]])
-        if i%7 == 0:
-            ax.annotate(list(labels)[i], xy=(data_2d[i][0], data_2d[i][1]))
     fig.savefig("clustering.png")
     return fig
 
@@ -138,8 +136,6 @@ def ui(transforms:dict, vec_2d: list, subreddits: list, sampledefault:int = 10) 
     with st.container():
         defaults = random.sample(subreddits, sampledefault)
         options = st.sidebar.multiselect('Subreddits', subreddits)
-        print(defaults)
-        print(options)
         if len(options) == 0:
             plot = visualize(transforms, vec_2d, *defaults)
         else:
