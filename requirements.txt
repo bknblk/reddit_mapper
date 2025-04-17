@@ -1,0 +1,12 @@
+requests
+re
+os
+pymongo
+praw
+sentence_transformers
+json
+sklearn
+streamlit
+matplotlib
+numpy
+random
